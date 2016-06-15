@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>eBusiness</title>
+    </h:head>
+    <h:body>
+<f:view>
+       <h1>Mon panier</h1>
+          <h:form>
+    <h:commandLink action="fromshoppingCart">
+        <h:outputText value="Accueil"/>
+    </h:commandLink>
+           </h:form>   
+                <h:dataTable value="#{shoppingCartManager.list}" var="item"
+                    styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+
+                    
+                        
+    <!-- column header -->
+        <h:column>
+
+    				<f:facet name="header">Produit</f:facet>
+    				<!-- row record -->
+    				#{item.produit.nom}
+    			</h:column>
+    <h:column>
+    				<!-- column header -->
+    				<f:facet name="header"> Quantité</f:facet>
+    				<!-- row record -->
+    				#{item.quantite}
+    			</h:column>
+    				
+         
+</h:dataTable>
+    
+ </f:view>    
+    </h:body>
+</html>
